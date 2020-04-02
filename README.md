@@ -1,14 +1,32 @@
 # csvdiff
 
-diff text files and print the adds
+diff csv files and find out the additions.
+
+It can be used to measure CPU single core, multi-core performance.
+
+
+## Build
+Go 1.12+
+
 
 ```sh
+$ git clone https://github.com/zyfdegh/csvdiff
+$ go build -mod=vendor
+```
+
+## Run
+```sh
+# find and print lines in b.csv but not in a.csv
 $ ./diffcsv testdata/a.csv testdata/b.csv
 4
 5
 
+# a-full.csv 176543 lines
+# b-full.csv 340012 lines
 $ time ./csvdiff testdata/a-full.csv testdata/b-full.csv > testdata/c-full-multi.csv
 ```
+
+## Result
 
 ```sh
 1. diff(), Intel i5-7500
@@ -24,5 +42,5 @@ $ time ./csvdiff testdata/a-full.csv testdata/b-full.csv > testdata/c-full-multi
 348.91s user 1.44s system 362% cpu 1:36.56 total
 
 5. diffmulti(), Intel Atom N270
-about 15min
+~ 15min
 ```
