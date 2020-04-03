@@ -17,13 +17,16 @@ $ go build -mod=vendor
 ## Run
 ```sh
 # find and print lines in b.csv but not in a.csv
-$ ./diffcsv testdata/a.csv testdata/b.csv
+$ ./csvdiff testdata/a.csv testdata/b.csv
 4
 5
 
 # a-full.csv 176543 lines
 # b-full.csv 340012 lines
 $ time ./csvdiff testdata/a-full.csv testdata/b-full.csv > testdata/c-full-multi.csv
+
+# PowerShell (Windows)
+> Measure-Command {.\csvdiff.exe testdata\a-full.csv testdata\b-full.csv > .\testdata\c-full.csv}
 ```
 
 ## Result
@@ -43,4 +46,7 @@ $ time ./csvdiff testdata/a-full.csv testdata/b-full.csv > testdata/c-full-multi
 
 5. diffmulti(), Intel Atom N270
 ~ 15min
+
+6. diffmulti(), AMD R5 3600
+~ 27s
 ```
