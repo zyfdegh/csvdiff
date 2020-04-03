@@ -32,7 +32,6 @@ func diffmulti(a, b []string) []string {
 	chunks := Split(b, runtime.NumCPU())
 	for _, ck := range chunks {
 		wg.Add(1)
-		fmt.Println("========= ck", ck)
 		go func(arr []string) {
 			defer wg.Done()
 			adds := diff(a, arr)
