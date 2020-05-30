@@ -27,6 +27,7 @@ To use all the CPU cores by default
 ```sh
 # a-full.csv 176543 lines
 # b-full.csv 340012 lines
+# it takes about 60 billion computes
 $ time ./csvdiff testdata/a-full.csv testdata/b-full.csv > testdata/c-full-multi.csv
 ```
 
@@ -45,9 +46,9 @@ For Windows
 
 | CPU | Cores, Threads | Base Freq | OS | Single core | Multicores |
 |--|:--:|--|--|--|--|
-| AMD R5 3600 | 6,12 | 3.6GHz | Windows 10 | | 27.2s |
-| Intel i5-7500  | 4, 4 | 3.4GHz | macOS 10.14 | 3m19.5s | 1m2.29s |
+| AMD R5 3600 | 6, 12 | 3.6GHz | Windows 10 | | 27.2s |
+| Intel i5-7500  | 4, 4 | 3.4GHz | macOS 10.14 | 3m01.35s | 48.856s |
 | Intel i5-7267U | 2, 4 | 3.1GHz | macOS 10.14 | - | 1m36.56s |
 | Intel i5-2520M | 2, 4 | 2.5GHz | Linux 5.5   | - | 2m16.95s |
-| Intel Atom N270 | 1, 2 | 1.6GHz | Linux 5.5 | ~15m | - |
+| Intel Atom N270 | 1, 2 | 1.6GHz | Linux 5.5 | - | ~15m |
 
