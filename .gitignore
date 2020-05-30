@@ -1,4 +1,3 @@
 csvdiff
 *.swp
-testdata/c-full-multi.csv
-
+testdata/c*.csv

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"runtime"
 	"sync"
 )
 
@@ -23,12 +22,12 @@ func diff(a, b []string) []string {
 	return res
 }
 
-func diffmulti(a, b []string) []string {
+func diffmulti(a, b []string, cores int) []string {
 	wg := &sync.WaitGroup{}
 	mu := &sync.Mutex{}
 
 	res := make([]string, 0, len(b))
-	chunks := Split(b, runtime.NumCPU())
+	chunks := Split(b, cores)
 	for _, ck := range chunks {
 		wg.Add(1)
 		go func(arr []string) {

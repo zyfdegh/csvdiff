@@ -26,17 +26,18 @@ func BenchmarkDiff(b *testing.B) {
 func TestDiffmulti(t *testing.T) {
 	a := []string{"1", "2", "3"}
 	b := []string{"2", "1", "4", "3", "5"}
-	got := diffmulti(a, b)
+	got := diffmulti(a, b, 2)
 	if !reflect.DeepEqual(got, []string{"4", "5"}) && !reflect.DeepEqual(got, []string{"5", "4"}) {
 		// reverse also ok
 		t.Error(got)
 	}
 }
 
+// 296878	      3694 ns/op	     296 B/op	       8 allocs/op
 func BenchmarkDiffmulti(b *testing.B) {
 	arr1 := []string{"1", "2", "3"}
 	arr2 := []string{"2", "1", "4", "3", "5"}
 	for i := 0; i < b.N; i++ {
-		diffmulti(arr1, arr2)
+		diffmulti(arr1, arr2, 2)
 	}
 }
