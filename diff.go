@@ -41,3 +41,15 @@ func diffmulti(a, b []string, cores int) []string {
 	wg.Wait()
 	return res
 }
+
+func diffM(a map[string]bool, b []string) []string {
+	res := make([]string, 0, len(b))
+	for _, v := range b {
+		if y, ok := a[v]; ok && y {
+			continue
+		} else {
+			res = append(res, v)
+		}
+	}
+	return res
+}
